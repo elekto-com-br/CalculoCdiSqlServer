@@ -1,11 +1,11 @@
 use [CdiForFunOrProfit];
 GO
 
--- só para garantir que esteja vazia
+-- sÃ³ para garantir que esteja vazia
 truncate table [Over].Cdi;
 GO
 
--- De 2002-01-02 até 2022-03-10
+-- De 2002-01-02 atÃ© 2022-03-10
 insert into [Over].Cdi ([Date], [Rate])
 	select '2002-01-02', 19.02 union all
 	select '2002-01-03', 19.02 union all
@@ -5082,7 +5082,7 @@ insert into [Over].Cdi ([Date], [Rate])
 	select '2022-03-10', 10.65;
 GO
 
--- Só conferências
+-- SÃ³ conferÃªncias
 select count(1) from [Over].Cdi; -- deve dar 5073
 select CHECKSUM_AGG(checksum(Rate)+checksum([Date])) from [Over].[Cdi]; -- deve dar -528629890
 select CHECKSUM_AGG(checksum(DailyFactor)) from [Over].[Cdi]; -- deve dar 571554945

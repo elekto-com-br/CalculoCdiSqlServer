@@ -9,7 +9,7 @@ CREATE DATABASE [CdiForFunOrProfit]
  WITH CATALOG_COLLATION = DATABASE_DEFAULT;
 GO
 
--- SÛ testes, n„o precisamos de recovery completo...
+-- S√≥ testes, n√£o precisamos de recovery completo...
 ALTER DATABASE [CdiForFunOrProfit] SET RECOVERY SIMPLE;
 GO
 

@@ -13,11 +13,11 @@ CREATE TABLE [Over].[Cdi]
 );
 GO
 
--- Só para testar com um número em particular...
+-- SÃ³ para testar com um nÃºmero em particular...
 insert into [Over].Cdi ([Date], Rate) values ('2021-07-30', 4.15);
-select DailyFactor from [Over].Cdi where [Date] = '2021-07-30'; -- 0.00016137 é o esperado.
+select DailyFactor from [Over].Cdi where [Date] = '2021-07-30'; -- 0.00016137 Ã© o esperado.
 GO
 
--- Cria um índice diretamente para a coluna calculada
+-- Cria um Ã­ndice diretamente para a coluna calculada
 create index IX_Over_Cdi_DailyFactor on [Over].Cdi (DailyFactor) with (DATA_COMPRESSION = PAGE);
 GO
