@@ -8,7 +8,8 @@ create or alter function [Over].GetCdiFactorCanon
 	@end date,
 	@alpha decimal(6, 2)
 )
-returns decimal (27, 8)
+returns decimal(27, 8)
+with SCHEMABINDING
 as
 begin
 	-- resultado final, com 8 casas, arredondado

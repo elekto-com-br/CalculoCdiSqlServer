@@ -10,7 +10,7 @@ declare @batchId char(4);
 set @batchId = 'In01';
 
 declare @maxDate date;
-set @maxDate = '2022-03-11'; -- na verdade a data máxima pode ser um dia útil a mais que essa data
+set @maxDate = '2022-03-11'; -- pode ser um dia útil a mais que o maior CDI
 
 declare @minDate date;
 set @minDate = '2012-03-11'; -- 10 anos, para CDI, já é um bocado

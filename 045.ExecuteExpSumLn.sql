@@ -1,7 +1,7 @@
 use [CdiForFunOrProfit];
 GO
 
-delete [Over].[Output] where BatchId = 'In01';
+delete [Over].[Output] where BatchId = 'Ix01';
 
 -- limpar buffers, teste do zero
 CHECKPOINT;
@@ -17,7 +17,7 @@ set @start = GETUTCDATE();
 
 insert into [Over].[Output] (BatchId, Id, Factor)
 	select 
-			i.BatchId, i.Id, [Over].GetCdiFactorCanon(i.[Start], i.[End], i.Alpha)
+			'Ix01', i.Id, [Over].GetCdiFactorExpSumLn(i.[Start], i.[End], i.Alpha)
 		from [Over].Input i
 		where i.BatchId = 'In01';
 
