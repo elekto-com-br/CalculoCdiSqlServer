@@ -19,5 +19,6 @@ select DailyFactor from [Over].Cdi where [Date] = '2021-07-30'; -- 0.00016137 é
 GO
 
 -- Cria um índice diretamente para a coluna calculada
-create index IX_Over_Cdi_DailyFactor on [Over].Cdi (DailyFactor) with (DATA_COMPRESSION = PAGE);
+create index IX_Over_Cdi_DailyFactor on [Over].Cdi ([Date]) include ([DailyFactor]) with (DATA_COMPRESSION = PAGE);
 GO
+

@@ -23,7 +23,7 @@ begin
 	declare @dailyFactorApha decimal(13, 12); -- não precisa de mais alcance e precisão que isso
 
 	declare overCursor cursor FAST_FORWARD LOCAL for
-		select [DailyFactor] from [Over].[Cdi] 
+		select [DailyFactor] from [Over].[Cdi] (nolock)
 			where 
 				[Date] >= @start	-- data inicial inclusive
 				and [Date] < @end	-- data final exclusive

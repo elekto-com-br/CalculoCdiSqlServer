@@ -24,7 +24,7 @@ begin
 					1.0 + (cast(DailyFactor as float) * cast(@alpha as float)/100.0)
 				)
 			) 
-		from [Over].[Cdi]
+		from [Over].[Cdi] (nolock)
 		where 
 			[Date] >= @start	-- data inicial inclusive
 			and [Date] < @end;	-- data final exclusive

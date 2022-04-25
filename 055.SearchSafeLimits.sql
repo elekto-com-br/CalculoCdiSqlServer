@@ -39,14 +39,24 @@ begin
 	set @alpha = @minAlpha;
 	while (@alpha <= @maxAlpha)
 	begin
-		set @factorCanon = [Over].GetCdiFactorCanon(@start, @maxDate, @alpha);
-		set @factorQuick = [Over].GetCdiFactorExpSumLn(@start, @maxDate, @alpha);
-
 		set @isSafe = 0;
-		if (@factorCanon = @factorQuick)
-		begin
-			set @isSafe = 1;	
-		end;
+
+		BEGIN TRY
+
+			set @factorCanon = [Over].GetCdiFactorCanon(@start, @maxDate, @alpha);
+			set @factorQuick = [Over].GetCdiFactorExpSumLn(@start, @maxDate, @alpha);
+
+			if (@factorCanon = @factorQuick)
+			begin
+				set @isSafe = 1;	
+			end;
+
+		END TRY
+		BEGIN CATCH
+			-- para pegar overflows
+			print ERROR_MESSAGE();
+			set @isSafe = 0;
+		END CATCH;
 
 		print ' Alpha ' + format(@alpha, 'G17') + ': ' + format(@factorCanon, 'G17') + ' == ' + format(@factorQuick, 'G17') + ' ? ' + cast(@isSafe as char(1));
 
