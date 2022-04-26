@@ -14,14 +14,14 @@ with SCHEMABINDING
 as
 begin
 	declare @ret decimal(27, 8);
-
+	
 	declare @sum float;
 	select @sum =
 			SUM
 			(
 				LOG
 				(						
-					1.0 + (cast(DailyFactor as float) * cast(@alpha as float)/100.0)
+					1 + DailyFactor * @alpha/100
 				)
 			) 
 		from [Over].[Cdi] (nolock)

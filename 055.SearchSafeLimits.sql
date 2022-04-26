@@ -5,7 +5,7 @@ set nocount on;
 
 -- Script para procurar os limites de segurança do algoritmo rápido e os salvar em tabela
 declare @maxDate date;
-set @maxDate = '2022-03-11'; -- pode ser um dia útil a mais que o maior CDI
+set @maxDate = '2022-03-11'; -- pode ser um dia útil a mais que o CDI mais atual
 
 declare @minDate date;
 set @minDate = (select min([Date]) from [Over].Cdi);
