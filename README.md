@@ -1,6 +1,6 @@
 # Calculo do Cdi no SqlServer
 
-Este repositório contém o código pertinente a série de posts publicado no Blog da Elekto.
+Este repositório contém o código pertinente a [série de posts](https://elekto.com.br/Blog/Tags/cdi) publicado no Blog da Elekto.
 
 Antes de usar esse código, confira os posts de modo a compreender as limitações, riscos e performance esperada.
 
